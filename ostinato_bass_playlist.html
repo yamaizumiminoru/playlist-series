@@ -88,13 +88,15 @@
  .area-en { background: var(--accent-en); }
  .area-es { background: #c08030; }
  .area-pl { background: #8b1a1a; }
+ .area-at { background: #d8a040; }
+ .area-ru { background: #6a78d6; }
 </style>
 </head>
 <body>
 <header>
- <h1>🎼 オスティナート・バス変奏曲プレイリスト <span>Ostinato Bass Variations — Playlist</span></h1>
- <p class="subtitle">バロック以前〜盛期バロック（c.1538–1750）にわたるオスティナート・バス（反復低音）作品を網羅。<br>
- シャコンヌ・パッサカリア・フォリア・グラウンドバス・ロマネスカ・ディフェレンシアなど全499曲を収録。１曲１演奏。</p>
+ <h1>オスティナート・バス変奏曲プレイリスト <span>Ostinato Bass Variations - Playlist</span></h1>
+ <p class="subtitle">バロック以前から近現代まで、反復低音・反復和声・固定主題による変奏作品を収集。<br>
+ シャコンヌ、パッサカリア、フォリア、グラウンド・バス、ロマネスカ、ディフェレンシアなど全514曲。</p>
 </header>
 <div class="controls">
  <div class="filter-group">
@@ -103,7 +105,7 @@
   <span class="btn" data-filter="type" data-val="ciaccona">チャッコーナ/シャコンヌ</span>
   <span class="btn" data-filter="type" data-val="passacaglia">パッサカリア</span>
   <span class="btn" data-filter="type" data-val="folia">フォリア</span>
-  <span class="btn" data-filter="type" data-val="ground">グラウンドバス</span>
+  <span class="btn" data-filter="type" data-val="ground">グラウンド・バス</span>
   <span class="btn" data-filter="type" data-val="romanesca">ロマネスカ</span>
   <span class="btn" data-filter="type" data-val="diferencias">ディフェレンシア</span>
   <span class="btn" data-filter="type" data-val="other">その他</span>
@@ -114,16 +116,18 @@
   <span class="btn" data-filter="area" data-val="es">スペイン</span>
   <span class="btn" data-filter="area" data-val="pl">ポーランド</span>
   <span class="btn" data-filter="area" data-val="it">イタリア</span>
-  <span class="btn" data-filter="area" data-val="de">ドイツ/オーストリア</span>
+  <span class="btn" data-filter="area" data-val="de">ドイツ</span>
+  <span class="btn" data-filter="area" data-val="at">オーストリア</span>
   <span class="btn" data-filter="area" data-val="fr">フランス</span>
   <span class="btn" data-filter="area" data-val="en">イングランド</span>
+  <span class="btn" data-filter="area" data-val="ru">ロシア/ソ連</span>
  </div>
  <div class="search-box" style="display:flex; gap:10px; align-items:center;">
-  <input type="text" id="search" placeholder="作曲家・曲名で検索…" style="flex:1;">
-  <button id="randomPlayBtn" class="btn" style="background:#8b1a1a;color:#fff;border:none;font-weight:bold;padding:8px 16px;cursor:pointer;">🎲 ランダム再生</button>
+  <input type="text" id="search" placeholder="作曲家・曲名・解説で検索..." style="flex:1;">
+  <button id="randomPlayBtn" class="btn" style="background:#8b1a1a;color:#fff;border:none;font-weight:bold;padding:8px 16px;cursor:pointer;">ランダム再生</button>
  </div>
 </div>
-<div class="stats" id="stats">全503曲表示中</div>
+<div class="stats" id="stats">全514曲表示中</div>
 <div class="main">
  <div class="track-grid" id="grid"></div>
 </div>
@@ -640,14 +644,23 @@ const tracks = [
   { n:502, composer:"Maurizio Cazzati", dates:"(1616–1678)", title:"Capriccio sopra sette note", year:"1651 or before", area:"it", areaLabel:"イタリア", type:"ciaccona", typeLabel:"チャッコーナ系カプリッチョ", instr:"2ヴァイオリン＋ヴィオローネ＋通奏低音", vid:"DYR-rEIN5RQ", performer:"Sonatori de la Gioiosa Marca", parentWork:"Correnti, balletti, galiarde", startTime:"0:00", videoScope:"movement-only", desc:"カッツァーティの「7つの音の上のカプリッチョ」。失われた初版を含む1651年以前の《Correnti, balletti, galiarde》系作品で、2つのヴァイオリンと通奏低音が短い反復素材の上で軽快に展開する。既収録のカッツァーティのチャッコーナ群（n:116, n:296, n:436）を補う初期ボローニャ器楽の好例。" },
   { n:503, composer:"Giovanni Zamboni", dates:"(c.1664–1721)", title:"Ceccona", year:"1718", area:"it", areaLabel:"イタリア", type:"ciaccona", typeLabel:"チャッコーナ", instr:"アーチリュート / リュート", vid:"7HmxPVo9KOc", performer:"Anna Kowalska (liuto attiorbato)", parentWork:"Sonate d'intavolatura di leuto, Op.1", startTime:"0:34", videoScope:"full-work-with-timestamp", desc:"ザンボーニ《リュートのためのタブラチュア・ソナタ集 Op.1》(1718) に付されたCeccona。CecconaはCiaccona/Chaconneの綴り揺れとして扱い、0:34から始まる該当箇所を登録。後期イタリア・リュート音楽に残る独奏チャッコーナの貴重な例。" },
   { n:504, composer:"Antonio Carbonchi", dates:"(fl. 1640s)", title:"Passacaglio passeggiato per D", year:"1640", area:"it", areaLabel:"イタリア", type:"passacaglia", typeLabel:"パッサカリア", instr:"バロック・ギター", vid:"psx_UFVcTfE", performer:"Timo Peedu (baroque guitar)", parentWork:"Sonate di chitarra spagnola", startTime:"0:00", videoScope:"movement-only", desc:"カルボンキ《スペイン式ギターのソナタ集》(1640) 系のパッサカリオ。Ceccona検索から派生して見つかった未収録候補で、イタリア初期バロック・ギターにおけるパッサカリア／チャッコーナ文化を補う一曲。" },
-  { n:505, composer:"Girolamo Frescobaldi", dates:"(1583–1643)", title:"Ceccona: Deh, vien da me pastorella", year:"1630", area:"it", areaLabel:"イタリア", type:"ciaccona", typeLabel:"声楽チャッコーナ", instr:"2テノール＋通奏低音", vid:"ad8J7xVqyKM", performer:"cantoLX / Frank Agsteribbe", parentWork:"Secondo libro d'arie musicali", startTime:"0:00", videoScope:"movement-only", desc:"フレスコバルディ《アリエ・ムジカーリ第2巻》(1630) の声楽Ceccona「Deh, vien da me pastorella」。既収録の鍵盤用チャッコーナ群とは別作品で、チャッコーナ低音を声楽作品に応用した重要例。レチタティーヴォ的な挿入を交えながら反復型が自由に展開する。" }
+  { n:505, composer:"Girolamo Frescobaldi", dates:"(1583–1643)", title:"Ceccona: Deh, vien da me pastorella", year:"1630", area:"it", areaLabel:"イタリア", type:"ciaccona", typeLabel:"声楽チャッコーナ", instr:"2テノール＋通奏低音", vid:"ad8J7xVqyKM", performer:"cantoLX / Frank Agsteribbe", parentWork:"Secondo libro d'arie musicali", startTime:"0:00", videoScope:"movement-only", desc:"フレスコバルディ《アリエ・ムジカーリ第2巻》(1630) の声楽Ceccona「Deh, vien da me pastorella」。既収録の鍵盤用チャッコーナ群とは別作品で、チャッコーナ低音を声楽作品に応用した重要例。レチタティーヴォ的な挿入を交えながら反復型が自由に展開する。" },
+  { n:506, composer:"Benjamin Britten", dates:"(1913–1976)", title:"Peter Grimes: Passacaglia", year:"1945", area:"en", areaLabel:"イングランド", type:"passacaglia", typeLabel:"パッサカリア", instr:"管弦楽", vid:"5SKpVYAsEa8", performer:"CYSO Symphony Orchestra / Allen Tinkham", startTime:"0:00", videoScope:"movement-only", desc:"オペラ《ピーター・グライムズ》から独立して演奏されるパッサカリア。20世紀の代表的なパッサカリアとして、管弦楽の反復低音と緊張の累積が明確に聴ける。" },
+  { n:507, composer:"Dmitri Shostakovich", dates:"(1906–1975)", title:"Violin Concerto No. 1 in A minor, Op. 77: III. Passacaglia", year:"1947–48", area:"ru", areaLabel:"ロシア/ソ連", type:"passacaglia", typeLabel:"パッサカリア", instr:"ヴァイオリン協奏曲", vid:"uSGzydGcSPk", performer:"Hilary Hahn", startTime:"0:00", videoScope:"movement-only", desc:"《ヴァイオリン協奏曲第1番》第3楽章。低音主題の反復に独奏ヴァイオリンの長いカデンツァへ向かう大きな弧を重ねた、ショスタコーヴィチの重要なパッサカリア。" },
+  { n:508, composer:"Anton Webern", dates:"(1883–1945)", title:"Passacaglia for Orchestra, Op. 1", year:"1908", area:"at", areaLabel:"オーストリア", type:"passacaglia", typeLabel:"パッサカリア", instr:"管弦楽", vid:"OLW1w675NHY", performer:"Pierre Boulez / London Symphony Orchestra", startTime:"0:00", videoScope:"complete-work", desc:"ヴェーベルンの作品番号1。シェーンベルク門下時代の大規模な管弦楽パッサカリアで、後期ロマン派的な響きの中に厳密な変奏構造を置く。" },
+  { n:509, composer:"Max Reger", dates:"(1873–1916)", title:"Introduction, Passacaglia und Fuge, Op. 127: II. Passacaglia", year:"1913", area:"de", areaLabel:"ドイツ", type:"passacaglia", typeLabel:"パッサカリア", instr:"オルガン", vid:"5adLlhbjXXA", performer:"Bernhard Schneider", startTime:"0:00", videoScope:"movement-only", desc:"レーガー晩年の大作《導入、パッサカリアとフーガ》Op.127のパッサカリア楽章。バッハ以後のドイツ・オルガン伝統を20世紀初頭に引き継ぐ濃密な変奏。" },
+  { n:510, composer:"Josef Rheinberger", dates:"(1839–1901)", title:"Organ Sonata No. 8 in E minor, Op. 132: Passacaglia", year:"1882", area:"de", areaLabel:"ドイツ/リヒテンシュタイン", type:"passacaglia", typeLabel:"パッサカリア", instr:"オルガン", vid:"eHKlIsdPF5w", performer:"YouTube candidate", startTime:"0:00", videoScope:"movement-only", desc:"《オルガン・ソナタ第8番》終楽章のパッサカリア。ロマン派オルガン・ソナタ内に置かれた、明快な反復低音型の変奏楽章。" },
+  { n:511, composer:"Sigfrid Karg-Elert", dates:"(1877–1933)", title:"Passacaglia and Fugue on B-A-C-H, Op. 150", year:"1931", area:"de", areaLabel:"ドイツ", type:"passacaglia", typeLabel:"パッサカリア", instr:"オルガン", vid:"kKAAqy5eq_c", performer:"Score video / organ recording", startTime:"0:00", videoScope:"complete-work", desc:"B-A-C-H主題による晩年のオルガン作品。フーガを含む全曲動画だが、作品の中核が巨大なパッサカリアとして展開するため採用。" },
+  { n:512, composer:"Flor Peeters", dates:"(1903–1986)", title:"Passacaglia and Fugue, Op. 42", year:"1938", area:"fr/be", areaLabel:"ベルギー", type:"passacaglia", typeLabel:"パッサカリア", instr:"オルガン", vid:"VKlCOL1akc0", performer:"YouTube candidate", startTime:"0:00", videoScope:"complete-work", desc:"ベルギーのオルガン作曲家フロール・ペーテルスによる《パッサカリアとフーガ》。近代オルガン作品として、伝統的な反復変奏とフーガを組み合わせる。" },
+  { n:513, composer:"Witold Lutosławski", dates:"(1913–1994)", title:"Concerto for Orchestra: III. Passacaglia, Toccata e Corale", year:"1954", area:"pl", areaLabel:"ポーランド", type:"passacaglia", typeLabel:"パッサカリア", instr:"管弦楽", vid:"ch962rQFE9g", performer:"YouTube candidate", startTime:"0:00", videoScope:"movement-only", desc:"《管弦楽のための協奏曲》終楽章。パッサカリア、トッカータ、コラールを連結する大規模楽章で、20世紀管弦楽作品における反復低音技法の重要例。" },
+  { n:514, composer:"Ronald Stevenson", dates:"(1928–2015)", title:"Passacaglia on DSCH", year:"1960–62", area:"en", areaLabel:"スコットランド", type:"passacaglia", typeLabel:"パッサカリア", instr:"ピアノ独奏", vid:"6_iK2tdYmck", performer:"YouTube candidate", startTime:"0:00", videoScope:"complete-work", desc:"ショスタコーヴィチのDSCH音型に基づく巨大なピアノ独奏パッサカリア。20世紀のパッサカリアとして異例の規模を持つ作品。" }
 ];
 
 const typeColors = {
  ciaccona:'type-ciaccona', passacaglia:'type-passacaglia', folia:'type-folia',
  ground:'type-ground', romanesca:'type-romanesca', diferencias:'type-diferencias', other:'type-other'
 };
-const areaColors = { es:'area-es', it:'area-it-early', de:'area-de', fr:'area-fr', en:'area-en', pl:'area-pl' };
+const areaColors = { es:'area-es', it:'area-it-early', de:'area-de', at:'area-at', fr:'area-fr', en:'area-en', pl:'area-pl', ru:'area-ru' };
 
 let activeType = 'all', activeArea = 'all', searchQ = '';
 let currentVisibleTracks = [];
@@ -691,11 +704,11 @@ function render() {
     ${t.parentWork ? `<div style="font-size:0.69rem;color:var(--muted);margin:2px 0 4px;line-height:1.4;"><span style="font-style:italic">${t.parentWork}</span>${t.movement ? ' ／ <strong style="color:var(--text)">' + t.movement + '</strong>' : ''} <span style="display:inline-block;padding:0 4px;border-radius:2px;background:#4a7c59;color:#fff;font-size:0.6rem;font-weight:700;vertical-align:middle;">楽章のみ</span></div>` : ''}
     <div class="meta"><span class="instrument">${t.instr}</span></div>
     <div class="desc">${t.desc}</div>
-    <div class="performer">🎵 ${t.performer}</div>
+    <div class="performer">演奏: ${t.performer}</div>
    </div>
    <div class="card-footer">
     <a class="yt-btn" href="${ytUrl}" target="_blank" rel="noopener">
-     <span class="yt-icon">▶</span> YouTube で視聴
+     <span class="yt-icon">&#9654;</span> YouTubeで視聴
     </a>
     <span class="area-label">${t.areaLabel}</span>
    </div>`;
