@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Ostinato Pending Candidates</title><style>:root{--bg:#101116;--surface:#1a1b23;--surface2:#232631;--border:#313544;--gold:#e8c76a;--muted:#a8a092;--text:#f1ecdf}*{box-sizing:border-box;margin:0;padding:0}body{min-height:100vh;background:var(--bg);color:var(--text);font-family:Segoe UI,Noto Sans JP,sans-serif}header{padding:28px 32px 20px;border-bottom:1px solid var(--border);background:linear-gradient(135deg,#12131c 0%,#1d1828 100%)}h1{font-size:1.55rem;color:var(--gold);margin-bottom:8px}.subtitle{color:var(--muted);line-height:1.65;max-width:980px;font-size:.9rem}.stats{padding:10px 32px;background:var(--surface);border-bottom:1px solid var(--border);color:var(--muted);font-size:.8rem}.main{padding:18px 24px}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px}.card{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden}.head{display:flex;gap:10px;align-items:center;padding:11px 14px;border-bottom:1px solid var(--border)}.num{color:var(--muted);font-size:.75rem}.badge{background:#3e4250;color:#ddd;padding:2px 8px;border-radius:10px;font-size:.68rem;font-weight:700}.body{padding:12px 14px}.composer{font-size:.8rem;color:var(--gold);font-weight:700}.title{font-size:.95rem;font-weight:700;margin:4px 0;line-height:1.35}.meta,.desc,.performer{color:#bdb5a6;font-size:.76rem;line-height:1.55;margin-top:6px}.performer{font-style:italic;color:var(--muted)}.foot{display:flex;gap:8px;align-items:center;padding:0 14px 12px}.yt{display:inline-flex;align-items:center;gap:6px;background:#c00;color:#fff;border-radius:6px;padding:6px 12px;font-size:.78rem;font-weight:700;text-decoration:none}.yt:hover{background:#e00}@media(max-width:720px){header,.stats{padding-left:16px;padding-right:16px}.main{padding:12px}.grid{grid-template-columns:1fr}}</style></head><body><header><h1>Ostinato Pending Candidates</h1><p class="subtitle">Listen-later candidates for ostinato/chaconne/passacaglia items kept outside the main list.</p></header><div id="stats" class="stats"></div><main class="main"><div id="grid" class="grid"></div></main><script>
+const tracks = [
+ {
+  "n": 1,
+  "composer": "Jean-Philippe Rameau",
+  "dates": "(1683-1764)",
+  "title": "Platee: Chaconne",
+  "kind": "Ostinato / chaconne candidate",
+  "vid": "teYJcPiEAL8",
+  "performer": "Orchestre de Chambre de Lausanne candidate",
+  "status": "old candidate",
+  "reason": "replace/check",
+  "desc": "Former ostinato-side candidate. Keep here for later decision against the main-list performance."
+ },
+ {
+  "n": 2,
+  "composer": "Jacques Champion de Chambonnieres",
+  "dates": "(1601/02-1672)",
+  "title": "Chaconne in F major",
+  "kind": "Chaconne candidate",
+  "vid": "943dOuUN3TY",
+  "performer": "Wanda Landowska candidate",
+  "status": "historical recording",
+  "reason": "alternate check",
+  "desc": "Landowska historical recording candidate. Useful historically, but old enough to keep outside the main list for now."
+ },
+ {
+  "n": 3,
+  "composer": "Christoph Graupner",
+  "dates": "(1683-1760)",
+  "title": "Ouverture in G major, GWV 456",
+  "kind": "Cross-list warning",
+  "vid": "D8mP_WugWMQ",
+  "performer": "Kim Patrick Clow candidate",
+  "status": "not ostinato",
+  "reason": "MIDI/source check",
+  "desc": "User flagged this as MIDI-like in the French-overture project. Stored here only as cross-list warning, not an ostinato candidate."
+ }
+];
+function url(t){let u='https://www.youtube.com/watch?v='+t.vid;if(t.startTime)u+='&t='+t.startTime;return u;}
+function render(){const g=document.getElementById('grid');g.innerHTML='';tracks.forEach(t=>{const c=document.createElement('div');c.className='card';c.innerHTML=`<div class="head"><span class="num">#${t.n}</span><span class="badge">${t.status}</span><span class="badge">${t.reason}</span></div><div class="body"><div class="composer">${t.composer} <span class="meta">${t.dates||''}</span></div><div class="title">${t.title}</div><div class="meta">${t.kind||''}</div><div class="desc">${t.desc}</div><div class="performer">Candidate: ${t.performer||'YouTube candidate'}</div></div><div class="foot"><a class="yt" href="${url(t)}" target="_blank" rel="noopener">YouTube</a></div>`;g.appendChild(c);});document.getElementById('stats').textContent=tracks.length+' pending candidates';}
+render();
+</script></body></html>

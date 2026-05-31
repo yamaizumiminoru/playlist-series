@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Imitative Counterpoint Pending Candidates</title><style>:root{--bg:#101116;--surface:#1a1b23;--surface2:#232631;--border:#313544;--gold:#e8c76a;--muted:#a8a092;--text:#f1ecdf}*{box-sizing:border-box;margin:0;padding:0}body{min-height:100vh;background:var(--bg);color:var(--text);font-family:Segoe UI,Noto Sans JP,sans-serif}header{padding:28px 32px 20px;border-bottom:1px solid var(--border);background:linear-gradient(135deg,#12131c 0%,#1d1828 100%)}h1{font-size:1.55rem;color:var(--gold);margin-bottom:8px}.subtitle{color:var(--muted);line-height:1.65;max-width:980px;font-size:.9rem}.stats{padding:10px 32px;background:var(--surface);border-bottom:1px solid var(--border);color:var(--muted);font-size:.8rem}.main{padding:18px 24px}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px}.card{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden}.head{display:flex;gap:10px;align-items:center;padding:11px 14px;border-bottom:1px solid var(--border)}.num{color:var(--muted);font-size:.75rem}.badge{background:#3e4250;color:#ddd;padding:2px 8px;border-radius:10px;font-size:.68rem;font-weight:700}.body{padding:12px 14px}.composer{font-size:.8rem;color:var(--gold);font-weight:700}.title{font-size:.95rem;font-weight:700;margin:4px 0;line-height:1.35}.meta,.desc,.performer{color:#bdb5a6;font-size:.76rem;line-height:1.55;margin-top:6px}.performer{font-style:italic;color:var(--muted)}.foot{display:flex;gap:8px;align-items:center;padding:0 14px 12px}.yt{display:inline-flex;align-items:center;gap:6px;background:#c00;color:#fff;border-radius:6px;padding:6px 12px;font-size:.78rem;font-weight:700;text-decoration:none}.yt:hover{background:#e00}@media(max-width:720px){header,.stats{padding-left:16px;padding-right:16px}.main{padding:12px}.grid{grid-template-columns:1fr}}</style></head><body><header><h1>Imitative Counterpoint Pending Candidates</h1><p class="subtitle">False hits, weak candidates, and duplicate-risk videos kept outside the main fugue/counterpoint list.</p></header><div id="stats" class="stats"></div><main class="main"><div id="grid" class="grid"></div></main><script>
+const tracks = [
+ {
+  "n": 1,
+  "composer": "Alexander Glazunov",
+  "dates": "(1865-1936)",
+  "title": "4 Preludes and Fugues, Op.101: No.2 in C-sharp minor, Prelude",
+  "kind": "Prelude-only track",
+  "vid": "ZJ6siW5XhRs",
+  "performer": "Stephen Coombs candidate",
+  "status": "hold",
+  "reason": "not fugue track",
+  "desc": "Search for Op.101 No.2 fugue surfaced the prelude track only. Add to main list only if the fugue track is found."
+ },
+ {
+  "n": 2,
+  "composer": "Frank Tveor Nordensten / search hit",
+  "title": "24 Preludes and Fugues, Op.87: Fugue No.8 in F-sharp minor",
+  "kind": "false hit",
+  "vid": "HK0gqxGG9oU",
+  "performer": "Igor Levit candidate",
+  "status": "likely reject",
+  "reason": "Shostakovich",
+  "desc": "Nordensten search surfaced Shostakovich Op.87."
+ },
+ {
+  "n": 3,
+  "composer": "Frank Nordensten / search hit",
+  "title": "24 Preludes and Fugues, Op.87: Fugue No.22 in G minor",
+  "kind": "false hit",
+  "vid": "-tAQ9KlqMNE",
+  "performer": "Igor Levit candidate",
+  "status": "likely reject",
+  "reason": "Shostakovich",
+  "desc": "Nordensten search surfaced Shostakovich Op.87."
+ },
+ {
+  "n": 4,
+  "composer": "Niels Viggo Bentzon / search hit",
+  "title": "Postcard-composition",
+  "kind": "false hit",
+  "vid": "1gyj5koX-n0",
+  "performer": "Carl Bergstroem-Nielsen candidate",
+  "status": "likely reject",
+  "reason": "unrelated",
+  "desc": "Bentzon 24 Preludes and Fugues search surfaced an unrelated Bentzon video."
+ },
+ {
+  "n": 5,
+  "composer": "Christopher Brown / search hit",
+  "title": "Shchedrin Op.45: XXI. B-flat major",
+  "kind": "false hit",
+  "vid": "qOVx4E6sdL0",
+  "performer": "Rodion Shchedrin - Topic",
+  "status": "likely reject",
+  "reason": "different composer",
+  "desc": "Christopher Brown search surfaced a Shchedrin track."
+ },
+ {
+  "n": 6,
+  "composer": "Grazyna Bacewicz",
+  "dates": "(1909-1969)",
+  "title": "Concertino",
+  "kind": "weak candidate",
+  "vid": "5clhcG0P9fk",
+  "performer": "PWM candidate",
+  "status": "hold",
+  "reason": "no fugue in title",
+  "desc": "Bacewicz fugue search surfaced Concertino. Needs listening before any main-list use."
+ },
+ {
+  "n": 7,
+  "composer": "Alexander Tcherepnin",
+  "dates": "(1899-1977)",
+  "title": "Eight pieces for piano, Op.88",
+  "kind": "weak candidate",
+  "vid": "x2ax8zkzUOM",
+  "performer": "TheWelleszCompany candidate",
+  "status": "hold",
+  "reason": "no fugue in title",
+  "desc": "Tcherepnin fugue search surfaced this work. Needs listening/context."
+ },
+ {
+  "n": 8,
+  "composer": "Aram Khachaturian / search hit",
+  "dates": "(1903-1978)",
+  "title": "Bach Transcriptions recital",
+  "kind": "false hit",
+  "vid": "xv4K4oPesJA",
+  "performer": "Hayk Melikyan candidate",
+  "status": "likely reject",
+  "reason": "different content",
+  "desc": "Khachaturian recitative/fugue search surfaced a Bach-transcription recital."
+ },
+ {
+  "n": 9,
+  "composer": "Karol Szymanowski",
+  "dates": "(1882-1937)",
+  "title": "Prelude and Fuga alternate video",
+  "kind": "duplicate-risk alternate",
+  "vid": "a2NxvK6g5eg",
+  "performer": "PONTA/STUDIO search candidate",
+  "status": "hold",
+  "reason": "main representative exists",
+  "desc": "Alternate video held out because Szymanowski Prelude and Fugue is already represented in the main list."
+ }
+];
+function url(t){let u='https://www.youtube.com/watch?v='+t.vid;if(t.startTime)u+='&t='+t.startTime;return u;}
+function render(){const g=document.getElementById('grid');g.innerHTML='';tracks.forEach(t=>{const c=document.createElement('div');c.className='card';c.innerHTML=`<div class="head"><span class="num">#${t.n}</span><span class="badge">${t.status}</span><span class="badge">${t.reason}</span></div><div class="body"><div class="composer">${t.composer} <span class="meta">${t.dates||''}</span></div><div class="title">${t.title}</div><div class="meta">${t.kind||''}</div><div class="desc">${t.desc}</div><div class="performer">Candidate: ${t.performer||'YouTube candidate'}</div></div><div class="foot"><a class="yt" href="${url(t)}" target="_blank" rel="noopener">YouTube</a></div>`;g.appendChild(c);});document.getElementById('stats').textContent=tracks.length+' pending candidates';}
+render();
+</script></body></html>
