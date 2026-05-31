@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Playlist Series</title>
 <style>
-:root{--bg:#101116;--panel:#1a1b23;--panel2:#232631;--border:#313544;--gold:#e8c76a;--muted:#a8a092;--text:#f1ecdf;--blue:#5f93cf;--red:#b84747;--green:#58a98c}
+:root{--bg:#101116;--panel:#1a1b23;--panel2:#232631;--border:#313544;--gold:#e8c76a;--muted:#a8a092;--text:#f1ecdf;--blue:#5f93cf;--red:#b84747;--green:#58a98c;--amber:#c79632}
 *{box-sizing:border-box;margin:0;padding:0}
 body{min-height:100vh;background:var(--bg);color:var(--text);font-family:"Segoe UI","Noto Sans JP",sans-serif}
 header{padding:36px 28px 24px;border-bottom:1px solid var(--border);background:linear-gradient(135deg,#12131c 0%,#1d1828 100%)}
@@ -17,7 +17,8 @@ main{max-width:1100px;margin:0 auto;padding:28px}
 .card:hover{border-color:var(--gold);transform:translateY(-2px)}
 .stripe{height:5px;background:var(--blue)}
 .card:nth-child(2) .stripe{background:var(--green)}
-.card:nth-child(3) .stripe{background:var(--red)}
+.card:nth-child(3) .stripe{background:var(--amber)}
+.card:nth-child(4) .stripe{background:var(--red)}
 .body{padding:20px;display:flex;flex-direction:column;gap:12px;flex:1}
 .kicker{font-size:.78rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
 h2{font-size:1.25rem;line-height:1.35}
@@ -31,7 +32,7 @@ footer{padding:0 28px 28px;color:var(--muted);font-size:.8rem;text-align:center}
 <body>
 <header>
   <h1>Playlist Series</h1>
-  <p class="lead">オスティナート・バス、フランス風序曲、模倣対位法の3つのプレイリスト。</p>
+  <p class="lead">オスティナート・バス、フランス風序曲、判定待ち候補、模倣対位法のプレイリスト。</p>
 </header>
 <main>
   <div class="grid">
@@ -51,6 +52,15 @@ footer{padding:0 28px 28px;color:var(--muted);font-size:.8rem;text-align:center}
         <h2>フランス風序曲</h2>
         <p class="desc">序曲単独、組曲・多楽章作品内のフランス風序曲を集めたプレイリスト。</p>
         <div class="meta"><span class="count">421 tracks</span><span>Open</span></div>
+      </div>
+    </a>
+    <a class="card" href="french_overture_pending_playlist.html">
+      <div class="stripe"></div>
+      <div class="body">
+        <div class="kicker">French Overture Pending</div>
+        <h2>判定待ち候補</h2>
+        <p class="desc">編曲、開始位置不明、Prelude型、誤ヒット寄りの候補を聴いて判定するための別枠。</p>
+        <div class="meta"><span class="count">9 tracks</span><span>Open</span></div>
       </div>
     </a>
     <a class="card" href="imitative_counterpoint_playlist.html">

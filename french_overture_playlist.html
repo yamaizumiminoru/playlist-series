@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
 <title>フランス風序曲プレイリスト</title>
 <style>
  :root {
@@ -77,7 +79,7 @@
   <span class="btn" data-filter="type" data-val="stage">舞台序曲</span>
   <span class="btn" data-filter="type" data-val="suite">組曲序曲</span>
   <span class="btn" data-filter="type" data-val="keyboard">鍵盤</span>
-  <span class="btn" data-filter="type" data-val="solo">独奏内在楽章</span>
+  <span class="btn" data-filter="type" data-val="solo">独奏/室内楽章</span>
   <span class="btn" data-filter="type" data-val="concerto">協奏曲</span>
   <span class="btn" data-filter="type" data-val="sacred">声楽/祝典</span>
  </div>
@@ -90,11 +92,11 @@
   <span class="btn" data-filter="area" data-val="it">イタリア</span>
  </div>
  <div class="filter-group">
-  <label>収録</label>
+  <label>出典</label>
   <span class="btn active" data-filter="source" data-val="all">すべて</span>
   <span class="btn" data-filter="source" data-val="standalone">序曲単独</span>
   <span class="btn" data-filter="source" data-val="opens-work">作品冒頭</span>
-  <span class="btn" data-filter="source" data-val="embedded">内在楽章</span>
+  <span class="btn" data-filter="source" data-val="embedded">内包楽章</span>
   <span class="btn" data-filter="source" data-val="variation">変奏内</span>
  </div>
  <div class="search-box">
@@ -7326,7 +7328,7 @@ function render() {
     <div class="performer">演奏候補: ${t.performer}</div>
    </div>
    <div class="card-footer">
-    <a class="yt-btn" href="${youtubeUrl(t)}" target="_blank" rel="noopener"><span>▶</span> YouTubeで視聴</a>
+    <a class="yt-btn" href="${youtubeUrl(t)}" target="_blank" rel="noopener"><span>?</span> YouTubeで視聴</a>
     <span class="area-label">${t.areaLabel}</span>
    </div>`;
   grid.appendChild(card);

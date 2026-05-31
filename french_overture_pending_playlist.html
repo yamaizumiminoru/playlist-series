@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<title>フランス風序曲 判定待ち候補</title>
+<style>
+ :root {
+  --bg:#101116; --surface:#1a1b23; --surface2:#232631; --border:#313544;
+  --gold:#c9a84c; --gold2:#e8c76a; --text:#ece7dc; --muted:#9b9587;
+  --fr:#8f6bc9; --de:#5f93cf; --en:#58a98c; --it:#c57944; --mix:#9f8f5a;
+  --stage:#b84747; --suite:#4178c8; --keyboard:#58a060; --solo:#9a5eb8; --concerto:#c79632; --sacred:#4fa6a0;
+ }
+ * { box-sizing:border-box; margin:0; padding:0; }
+ body { background:var(--bg); color:var(--text); font-family:"Segoe UI","Noto Sans JP",sans-serif; min-height:100vh; }
+ header { background:linear-gradient(135deg,#12131c 0%,#1d1828 100%); border-bottom:1px solid var(--border); padding:28px 32px 20px; }
+ h1 { font-size:1.6rem; color:var(--gold2); letter-spacing:.04em; margin-bottom:6px; }
+ h1 span { color:var(--muted); font-weight:400; font-size:1rem; margin-left:12px; }
+ .subtitle { color:var(--muted); font-size:.85rem; line-height:1.65; max-width:940px; }
+ .controls { padding:16px 32px; background:var(--surface); border-bottom:1px solid var(--border); display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+ .controls label { color:var(--muted); font-size:.78rem; margin-right:4px; }
+ .filter-group { display:flex; flex-wrap:wrap; gap:5px; align-items:center; }
+ .filter-group + .filter-group { margin-left:16px; padding-left:16px; border-left:1px solid var(--border); }
+ .btn { cursor:pointer; border:1px solid var(--border); background:var(--surface2); color:var(--muted); padding:4px 11px; border-radius:20px; font-size:.75rem; transition:all .15s; user-select:none; }
+ .btn:hover { border-color:var(--gold); color:var(--gold); }
+ .btn.active { background:var(--gold); color:#12101c; border-color:var(--gold); font-weight:600; }
+ .search-box { margin-left:auto; display:flex; gap:8px; align-items:center; }
+ .search-box input { background:var(--surface2); border:1px solid var(--border); color:var(--text); padding:5px 12px; border-radius:20px; font-size:.8rem; width:220px; outline:none; }
+ .search-box input:focus { border-color:var(--gold); }
+ .random-btn { border-radius:6px; border:1px solid var(--gold); background:transparent; color:var(--gold2); padding:5px 10px; cursor:pointer; font-size:.75rem; }
+ .stats { padding:8px 32px; background:var(--surface); border-bottom:1px solid var(--border); font-size:.75rem; color:var(--muted); }
+ .main { padding:16px 24px; }
+ .track-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:12px; }
+ .card { background:var(--surface); border:1px solid var(--border); border-radius:8px; overflow:hidden; transition:border-color .15s, transform .1s; }
+ .card:hover { border-color:var(--gold); transform:translateY(-1px); }
+ .card-header { display:flex; align-items:center; gap:10px; padding:10px 14px 8px; border-bottom:1px solid var(--border); }
+ .num { color:var(--muted); font-size:.7rem; min-width:24px; }
+ .type-badge,.source-badge { padding:2px 8px; border-radius:10px; font-size:.65rem; font-weight:700; letter-spacing:.03em; color:#fff; flex-shrink:0; }
+ .source-badge { background:#3e4250; color:#d7d1c4; }
+ .area-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+ .card-body { padding:10px 14px 8px; }
+ .composer { font-size:.78rem; color:var(--gold); font-weight:600; }
+ .composer-dates { color:var(--muted); font-size:.7rem; font-weight:400; }
+ .title { font-size:.9rem; color:var(--text); font-weight:600; margin:3px 0 2px; line-height:1.35; }
+ .meta { font-size:.7rem; color:var(--muted); margin-bottom:6px; line-height:1.45; }
+ .instrument { color:#7ab0d4; }
+ .desc { font-size:.73rem; color:#b7b0a2; line-height:1.5; margin-bottom:8px; }
+ .performer { font-size:.7rem; color:var(--muted); font-style:italic; margin-bottom:8px; }
+ .card-footer { padding:0 14px 10px; display:flex; gap:8px; align-items:center; }
+ .yt-btn { display:inline-flex; align-items:center; gap:6px; background:#c00; color:#fff; border:none; border-radius:6px; padding:5px 12px; font-size:.75rem; font-weight:600; cursor:pointer; text-decoration:none; transition:background .15s; }
+ .yt-btn:hover { background:#e00; }
+ .area-label { font-size:.68rem; color:var(--muted); margin-left:auto; }
+ .type-stage { background:var(--stage); } .type-suite { background:var(--suite); }
+ .type-keyboard { background:var(--keyboard); } .type-solo { background:var(--solo); }
+ .type-concerto { background:var(--concerto); color:#16120a; } .type-sacred { background:var(--sacred); color:#111; }
+ .area-fr { background:var(--fr); } .area-de { background:var(--de); } .area-en { background:var(--en); }
+ .area-it { background:var(--it); } .area-mix { background:var(--mix); }
+ @media (max-width:760px) {
+  header,.controls,.stats { padding-left:16px; padding-right:16px; }
+  .filter-group + .filter-group { margin-left:0; padding-left:0; border-left:0; }
+  .search-box { width:100%; margin-left:0; }
+  .search-box input { flex:1; min-width:0; }
+  .main { padding:12px; }
+  .track-grid { grid-template-columns:1fr; }
+ }
+</style>
+</head>
+<body>
+<header>
+ <h1>フランス風序曲 判定待ち候補 <span>French Overture / Ouverture a la francaise</span></h1>
+ <p class="subtitle">本編入りを保留した候補をまとめた判定用プレイリスト。編曲、開始位置不明、Prelude型、誤ヒット寄りのものを、あとで聴いて採用/却下しやすいように分離。</p>
+</header>
+<div class="controls">
+ <div class="filter-group">
+  <label>種別</label>
+  <span class="btn active" data-filter="type" data-val="all">すべて</span>
+  <span class="btn" data-filter="type" data-val="stage">舞台序曲</span>
+  <span class="btn" data-filter="type" data-val="suite">組曲序曲</span>
+  <span class="btn" data-filter="type" data-val="keyboard">鍵盤</span>
+  <span class="btn" data-filter="type" data-val="solo">独奏/室内楽章</span>
+  <span class="btn" data-filter="type" data-val="concerto">協奏曲</span>
+  <span class="btn" data-filter="type" data-val="sacred">声楽/祝典</span>
+ </div>
+ <div class="filter-group">
+  <label>地域</label>
+  <span class="btn active" data-filter="area" data-val="all">すべて</span>
+  <span class="btn" data-filter="area" data-val="fr">フランス</span>
+  <span class="btn" data-filter="area" data-val="de">ドイツ/オーストリア</span>
+  <span class="btn" data-filter="area" data-val="en">イングランド</span>
+  <span class="btn" data-filter="area" data-val="it">イタリア</span>
+ </div>
+ <div class="filter-group">
+  <label>出典</label>
+  <span class="btn active" data-filter="source" data-val="all">すべて</span>
+  <span class="btn" data-filter="source" data-val="standalone">序曲単独</span>
+  <span class="btn" data-filter="source" data-val="opens-work">作品冒頭</span>
+  <span class="btn" data-filter="source" data-val="embedded">内包楽章</span>
+  <span class="btn" data-filter="source" data-val="variation">変奏内</span>
+ </div>
+ <div class="search-box">
+  <input id="search" type="search" placeholder="作曲家・曲名・説明を検索">
+  <button id="randomPlayBtn" class="random-btn">ランダム再生</button>
+ </div>
+</div>
+<div id="stats" class="stats"></div>
+<main class="main"><div id="grid" class="track-grid"></div></main>
+<script>
+const tracks = [
+ {
+  "n": 1,
+  "composer": "Charles Dieupart",
+  "dates": "(c.1667-c.1740)",
+  "title": "Suite No.4 in E minor: I. Ouverture",
+  "year": "1701",
+  "area": "fr",
+  "areaLabel": "フランス",
+  "type": "keyboard",
+  "typeLabel": "Keyboard candidate",
+  "source": "opens-work",
+  "sourceLabel": "Arrangement check",
+  "instr": "Guitar arrangement",
+  "vid": "MjfvP9CYnDA",
+  "performer": "Ben Beuming candidate",
+  "startTime": "0:00",
+  "desc": "Pending: the work itself opens with an Ouverture, but this video is a guitar arrangement."
+ },
+ {
+  "n": 2,
+  "composer": "Francois Couperin",
+  "dates": "(1668-1733)",
+  "title": "Les Nations: La Francoise",
+  "year": "1726",
+  "area": "fr",
+  "areaLabel": "フランス",
+  "type": "solo",
+  "typeLabel": "Chamber candidate",
+  "source": "embedded",
+  "sourceLabel": "Start check",
+  "instr": "Chamber music",
+  "vid": "HvQdTPDJ91c",
+  "performer": "Les Ombres Ensemble candidate",
+  "startTime": "",
+  "desc": "Pending: surfaced for La Francoise, but the visible title points to a gigue. Check whether an overture section is present."
+ },
+ {
+  "n": 3,
+  "composer": "Francois Couperin",
+  "dates": "(1668-1733)",
+  "title": "Les Nations: La Piemontoise",
+  "year": "1726",
+  "area": "fr",
+  "areaLabel": "フランス",
+  "type": "solo",
+  "typeLabel": "Chamber candidate",
+  "source": "embedded",
+  "sourceLabel": "Start check",
+  "instr": "Chamber music",
+  "vid": "LXumfRvk1qY",
+  "performer": "Cohaere Ensemble candidate",
+  "startTime": "",
+  "desc": "Pending: possible full-work/excerpt video. Needs listening for an overture-form opening or timestamp."
+ },
+ {
+  "n": 4,
+  "composer": "Elisabeth Jacquet de La Guerre",
+  "dates": "(1665-1729)",
+  "title": "Harpsichord Suite No.1 in D minor: I. Prelude",
+  "year": "1687",
+  "area": "fr",
+  "areaLabel": "フランス",
+  "type": "keyboard",
+  "typeLabel": "Prelude candidate",
+  "source": "opens-work",
+  "sourceLabel": "Style check",
+  "instr": "Harpsichord",
+  "vid": "bVaiR0P_gOI",
+  "performer": "Elizabeth Farr candidate",
+  "startTime": "0:00",
+  "desc": "Pending: titled Prelude rather than Ouverture. Decide by listening whether it behaves like a French-overture opening."
+ },
+ {
+  "n": 5,
+  "composer": "Jean-Francois Dandrieu",
+  "dates": "(1682-1738)",
+  "title": "Ouverture / suite candidate",
+  "year": "18th c.",
+  "area": "fr",
+  "areaLabel": "フランス",
+  "type": "keyboard",
+  "typeLabel": "Keyboard candidate",
+  "source": "embedded",
+  "sourceLabel": "Video check",
+  "instr": "Keyboard",
+  "vid": "qLJKcYmBpPw",
+  "performer": "YouTube candidate",
+  "startTime": "",
+  "desc": "Pending: search hit, but oEmbed returned an authorization error. Check availability and title manually."
+ },
+ {
+  "n": 6,
+  "composer": "Louis-Nicolas Clerambault",
+  "dates": "(1676-1749)",
+  "title": "Suite de Premier Ton excerpts",
+  "year": "18th c.",
+  "area": "fr",
+  "areaLabel": "フランス",
+  "type": "keyboard",
+  "typeLabel": "Excerpt candidate",
+  "source": "embedded",
+  "sourceLabel": "Weak candidate",
+  "instr": "Organ/keyboard",
+  "vid": "fFvTnNmgCJk",
+  "performer": "Pianorganist candidate",
+  "startTime": "",
+  "desc": "Pending: video is Duo/Basse/Dessus/R?cits excerpts rather than an obvious overture."
+ },
+ {
+  "n": 7,
+  "composer": "Johann Philipp Krieger",
+  "dates": "(1649-1725)",
+  "title": "Minuet in A minor",
+  "year": "17th-18th c.",
+  "area": "de",
+  "areaLabel": "ドイツ/オーストリア",
+  "type": "suite",
+  "typeLabel": "False-hit candidate",
+  "source": "embedded",
+  "sourceLabel": "Likely reject",
+  "instr": "Keyboard",
+  "vid": "sddmQMHJfCM",
+  "performer": "klangdepot candidate",
+  "startTime": "",
+  "desc": "Pending: surfaced during Ouverture search, but the video is a minuet."
+ },
+ {
+  "n": 8,
+  "composer": "Johann Melchior Molter",
+  "dates": "(1696-1765)",
+  "title": "Symphony in D major, MWV 7:71",
+  "year": "18th c.",
+  "area": "de",
+  "areaLabel": "ドイツ/オーストリア",
+  "type": "concerto",
+  "typeLabel": "Comparison candidate",
+  "source": "opens-work",
+  "sourceLabel": "Non-Ouverture",
+  "instr": "Orchestra",
+  "vid": "M4w60dRVbbQ",
+  "performer": "Kim Patrick Clow candidate",
+  "startTime": "",
+  "desc": "Pending: title is Symphony rather than Ouverture. Keep only if the opening is audibly French-overture-like."
+ },
+ {
+  "n": 9,
+  "composer": "Johann Friedrich Fasch",
+  "dates": "(1688-1758)",
+  "title": "Ouverture in B-flat major, FWV K:B1: Aria",
+  "year": "18th c.",
+  "area": "de",
+  "areaLabel": "ドイツ/オーストリア",
+  "type": "suite",
+  "typeLabel": "Movement candidate",
+  "source": "embedded",
+  "sourceLabel": "Not opening",
+  "instr": "Orchestra",
+  "vid": "FE-8FIbkHL8",
+  "performer": "Kim Patrick Clow candidate",
+  "startTime": "",
+  "desc": "Pending: work is an Ouverture, but this video is the Aria movement, not the opening overture."
+ }
+];
+
+const typeColors = { stage:"type-stage", suite:"type-suite", keyboard:"type-keyboard", solo:"type-solo", concerto:"type-concerto", sacred:"type-sacred" };
+const areaColors = { fr:"area-fr", de:"area-de", en:"area-en", it:"area-it", "de/en":"area-mix" };
+let activeType = "all", activeArea = "all", activeSource = "all", searchQ = "", currentVisibleTracks = [];
+
+function secondsFromTime(time) {
+ if (!time) return 0;
+ const parts = time.split(":").map(Number).reverse();
+ return (parts[0] || 0) + (parts[1] || 0) * 60 + (parts[2] || 0) * 3600;
+}
+function youtubeUrl(t) {
+ let url = `https://www.youtube.com/watch?v=${t.vid}`;
+ const sec = secondsFromTime(t.startTime);
+ if (sec > 0) url += `&t=${sec}s`;
+ return url;
+}
+function areaMatches(t, area) {
+ if (area === "all") return true;
+ return t.area.split("/").includes(area);
+}
+function render() {
+ const grid = document.getElementById("grid");
+ const q = searchQ.trim().toLowerCase();
+ currentVisibleTracks = [];
+ grid.innerHTML = "";
+ tracks.forEach(t => {
+  const haystack = `${t.composer} ${t.title} ${t.desc} ${t.performer} ${t.areaLabel} ${t.typeLabel} ${t.sourceLabel}`.toLowerCase();
+  if (activeType !== "all" && t.type !== activeType) return;
+  if (!areaMatches(t, activeArea)) return;
+  if (activeSource !== "all" && t.source !== activeSource) return;
+  if (q && !haystack.includes(q)) return;
+  currentVisibleTracks.push(t);
+  const card = document.createElement("div");
+  card.className = "card";
+  card.innerHTML = `
+   <div class="card-header">
+    <span class="num">#${t.n}</span>
+    <span class="type-badge ${typeColors[t.type] || "type-suite"}">${t.typeLabel}</span>
+    <span class="source-badge">${t.sourceLabel}</span>
+    <span class="area-dot ${areaColors[t.area] || "area-mix"}" title="${t.areaLabel}"></span>
+    <span style="color:var(--muted);font-size:.7rem;flex:1">${t.year}</span>
+   </div>
+   <div class="card-body">
+    <div class="composer">${t.composer} <span class="composer-dates">${t.dates}</span></div>
+    <div class="title">${t.title}</div>
+    <div class="meta"><span class="instrument">${t.instr}</span>${t.startTime ? ` / start ${t.startTime}` : ""}</div>
+    <div class="desc">${t.desc}</div>
+    <div class="performer">演奏候補: ${t.performer}</div>
+   </div>
+   <div class="card-footer">
+    <a class="yt-btn" href="${youtubeUrl(t)}" target="_blank" rel="noopener"><span>?</span> YouTubeで視聴</a>
+    <span class="area-label">${t.areaLabel}</span>
+   </div>`;
+  grid.appendChild(card);
+ });
+ document.getElementById("stats").textContent = `${currentVisibleTracks.length} 曲表示中 / 全 ${tracks.length} 曲`;
+}
+document.querySelectorAll(".btn[data-filter]").forEach(btn => {
+ btn.addEventListener("click", () => {
+  const f = btn.dataset.filter, v = btn.dataset.val;
+  document.querySelectorAll(`.btn[data-filter="${f}"]`).forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  if (f === "type") activeType = v;
+  if (f === "area") activeArea = v;
+  if (f === "source") activeSource = v;
+  render();
+ });
+});
+document.getElementById("search").addEventListener("input", e => { searchQ = e.target.value; render(); });
+document.getElementById("randomPlayBtn").addEventListener("click", () => {
+ if (!currentVisibleTracks.length) return;
+ const t = currentVisibleTracks[Math.floor(Math.random() * currentVisibleTracks.length)];
+ window.open(youtubeUrl(t), "_blank", "noopener,noreferrer");
+});
+render();
+</script>
+</body>
+</html>
