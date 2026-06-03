@@ -2,18 +2,6 @@
 <html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Imitative Counterpoint Pending Candidates</title><style>:root{--bg:#101116;--surface:#1a1b23;--surface2:#232631;--border:#313544;--gold:#e8c76a;--muted:#a8a092;--text:#f1ecdf}*{box-sizing:border-box;margin:0;padding:0}body{min-height:100vh;background:var(--bg);color:var(--text);font-family:Segoe UI,Noto Sans JP,sans-serif}header{padding:28px 32px 20px;border-bottom:1px solid var(--border);background:linear-gradient(135deg,#12131c 0%,#1d1828 100%)}h1{font-size:1.55rem;color:var(--gold);margin-bottom:8px}.subtitle{color:var(--muted);line-height:1.65;max-width:980px;font-size:.9rem}.stats{padding:10px 32px;background:var(--surface);border-bottom:1px solid var(--border);color:var(--muted);font-size:.8rem}.main{padding:18px 24px}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px}.card{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden}.head{display:flex;gap:10px;align-items:center;padding:11px 14px;border-bottom:1px solid var(--border)}.num{color:var(--muted);font-size:.75rem}.badge{background:#3e4250;color:#ddd;padding:2px 8px;border-radius:10px;font-size:.68rem;font-weight:700}.body{padding:12px 14px}.composer{font-size:.8rem;color:var(--gold);font-weight:700}.title{font-size:.95rem;font-weight:700;margin:4px 0;line-height:1.35}.meta,.desc,.performer{color:#bdb5a6;font-size:.76rem;line-height:1.55;margin-top:6px}.performer{font-style:italic;color:var(--muted)}.foot{display:flex;gap:8px;align-items:center;padding:0 14px 12px}.yt{display:inline-flex;align-items:center;gap:6px;background:#c00;color:#fff;border-radius:6px;padding:6px 12px;font-size:.78rem;font-weight:700;text-decoration:none}.yt:hover{background:#e00}@media(max-width:720px){header,.stats{padding-left:16px;padding-right:16px}.main{padding:12px}.grid{grid-template-columns:1fr}}</style></head><body><header><h1>Imitative Counterpoint Pending Candidates</h1><p class="subtitle">False hits, weak candidates, and duplicate-risk videos kept outside the main fugue/counterpoint list.</p></header><div id="stats" class="stats"></div><main class="main"><div id="grid" class="grid"></div></main><script>
 const tracks = [
   {
-    n: 1,
-    composer: "Grazyna Bacewicz",
-    dates: "(1909-1969)",
-    title: "Concertino",
-    kind: "weak candidate",
-    vid: "5clhcG0P9fk",
-    performer: "PWM candidate",
-    status: "hold",
-    reason: "no fugue in title",
-    desc: "Bacewicz fugue search surfaced Concertino. Needs listening before any main-list use."
-  },
-  {
     composer: "Girolamo Frescobaldi",
     dates: "(1583-1643)",
     title: "Capriccio sopra la Bassa Fiamenga",
@@ -26,8 +14,8 @@ const tracks = [
     vid: "8Fq_Zxd2WMY",
     performer: "YouTube candidate",
     startTime: "",
-    desc: "Audit candidate copied from main #7. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 1624。ファンタジア/カプリッチョ/ヴォランタリー系の模倣的作品。 YouTube候補。",
-    n: 2
+    desc: "Audit candidate copied from main #7. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 1624。ファンタジア/カプリッチョ/ヴォランタリー系の模倣的作品。 YouTube候補。 User audit: triangle. Accordion performance is not authentic; also may belong to the ostinato/ground-bass side rather than the fugue list. Keep pending for alternate-video and category decision.",
+    n: 1
   },
   {
     composer: "Jan Pieterszoon Sweelinck",
@@ -43,7 +31,7 @@ const tracks = [
     performer: "S. Schoonbroodt candidate",
     startTime: "",
     desc: "Audit candidate copied from main #8. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: c.1610。ファンタジア/カプリッチョ/ヴォランタリー系の模倣的作品。 YouTube候補。",
-    n: 3
+    n: 2
   },
   {
     composer: "William Byrd",
@@ -59,7 +47,7 @@ const tracks = [
     performer: "YouTube candidate",
     startTime: "",
     desc: "Audit candidate copied from main #144. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: late 16th c.。ファンタジア/カプリッチョ/ヴォランタリー系の模倣的作品。 YouTube候補。",
-    n: 4
+    n: 3
   },
   {
     composer: "William Byrd",
@@ -75,7 +63,7 @@ const tracks = [
     performer: "YouTube candidate",
     startTime: "",
     desc: "Audit candidate copied from main #145. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 1591。ファンタジア/カプリッチョ/ヴォランタリー系の模倣的作品。 YouTube候補。",
-    n: 5
+    n: 4
   },
   {
     composer: "Orlando Gibbons",
@@ -91,7 +79,7 @@ const tracks = [
     performer: "YouTube candidate",
     startTime: "",
     desc: "Audit candidate copied from main #146. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: early 17th c.。ファンタジア/カプリッチョ/ヴォランタリー系の模倣的作品。 YouTube候補。",
-    n: 6
+    n: 5
   },
   {
     composer: "Thomas Tomkins",
@@ -107,7 +95,7 @@ const tracks = [
     performer: "YouTube candidate",
     startTime: "",
     desc: "Audit candidate copied from main #148. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 17th c.。ファンタジア/カプリッチョ/ヴォランタリー系の模倣的作品。 YouTube候補。",
-    n: 7
+    n: 6
   },
   {
     composer: "Georg Muffat",
@@ -123,7 +111,7 @@ const tracks = [
     performer: "YouTube candidate",
     startTime: "",
     desc: "Audit candidate copied from main #159. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 1690。フーガまたはフーガを含む作品。 YouTube候補。",
-    n: 8
+    n: 7
   },
   {
     composer: "Juan Bautista Cabanilles",
@@ -139,7 +127,7 @@ const tracks = [
     performer: "YouTube candidate",
     startTime: "",
     desc: "Audit candidate copied from main #172. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: c.1690。ファンタジア/カプリッチョ/ヴォランタリー系の模倣的作品。 YouTube候補。",
-    n: 9
+    n: 8
   },
   {
     composer: "Francisco Correa de Arauxo",
@@ -155,7 +143,7 @@ const tracks = [
     performer: "Luis Antonio Gonzalez candidate",
     startTime: "",
     desc: "Audit candidate copied from main #173. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 1626。ファンタジア/カプリッチョ/ヴォランタリー系の模倣的作品。 YouTube候補。",
-    n: 10
+    n: 9
   },
   {
     composer: "Giovanni Battista Fontana",
@@ -171,7 +159,7 @@ const tracks = [
     performer: "YouTube candidate",
     startTime: "",
     desc: "Audit candidate copied from main #212. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 1641。ファンタジア/カプリッチョ/ヴォランタリー系の模倣的作品。 YouTube候補。",
-    n: 11
+    n: 10
   },
   {
     composer: "Giovanni Legrenzi",
@@ -187,7 +175,7 @@ const tracks = [
     performer: "YouTube candidate",
     startTime: "",
     desc: "Audit candidate copied from main #213. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 17th c.。ファンタジア/カプリッチョ/ヴォランタリー系の模倣的作品。 YouTube候補。",
-    n: 12
+    n: 11
   },
   {
     composer: "Juan Bautista Cabanilles",
@@ -203,7 +191,7 @@ const tracks = [
     performer: "YouTube candidate",
     startTime: "",
     desc: "Audit candidate copied from main #301. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: c.1690。ファンタジア/カプリッチョ/ヴォランタリー系の模倣的作品。 YouTube候補。",
-    n: 13
+    n: 12
   },
   {
     composer: "Juan Bautista Cabanilles",
@@ -219,7 +207,7 @@ const tracks = [
     performer: "John Butt candidate",
     startTime: "",
     desc: "Audit candidate copied from main #302. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: c.1690。ファンタジア/カプリッチョ/ヴォランタリー系の模倣的作品。 YouTube候補。",
-    n: 14
+    n: 13
   },
   {
     composer: "Juan Bautista Cabanilles",
@@ -235,7 +223,7 @@ const tracks = [
     performer: "Francis Chapelet candidate",
     startTime: "",
     desc: "Audit candidate copied from main #303. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: c.1690。ファンタジア/カプリッチョ/ヴォランタリー系の模倣的作品。 YouTube候補。",
-    n: 15
+    n: 14
   },
   {
     composer: "Juan Bautista Cabanilles",
@@ -251,7 +239,7 @@ const tracks = [
     performer: "John Butt candidate",
     startTime: "",
     desc: "Audit candidate copied from main #304. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: c.1690。ファンタジア/カプリッチョ/ヴォランタリー系の模倣的作品。 YouTube候補。",
-    n: 16
+    n: 15
   },
   {
     composer: "Francisco Correa de Arauxo",
@@ -267,7 +255,7 @@ const tracks = [
     performer: "YouTube candidate",
     startTime: "",
     desc: "Audit candidate copied from main #305. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 1626。ファンタジア/カプリッチョ/ヴォランタリー系の模倣的作品。 YouTube候補。",
-    n: 17
+    n: 16
   },
   {
     composer: "Francisco Correa de Arauxo",
@@ -283,7 +271,7 @@ const tracks = [
     performer: "YouTube candidate",
     startTime: "",
     desc: "Audit candidate copied from main #306. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 1626。ファンタジア/カプリッチョ/ヴォランタリー系の模倣的作品。 YouTube候補。",
-    n: 18
+    n: 17
   },
   {
     composer: "Pablo Bruna",
@@ -299,7 +287,7 @@ const tracks = [
     performer: "YouTube candidate",
     startTime: "",
     desc: "Audit candidate copied from main #307. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 17th c.。ファンタジア/カプリッチョ/ヴォランタリー系の模倣的作品。 YouTube候補。",
-    n: 19
+    n: 18
   },
   {
     composer: "Sebastian Aguilera de Heredia",
@@ -315,7 +303,7 @@ const tracks = [
     performer: "YouTube candidate",
     startTime: "",
     desc: "Audit candidate copied from main #308. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 17th c.。ファンタジア/カプリッチョ/ヴォランタリー系の模倣的作品。 YouTube候補。",
-    n: 20
+    n: 19
   },
   {
     composer: "Francisco de Peraza",
@@ -331,7 +319,7 @@ const tracks = [
     performer: "YouTube candidate",
     startTime: "",
     desc: "Audit candidate copied from main #309. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: late 16th c.。ファンタジア/カプリッチョ/ヴォランタリー系の模倣的作品。 YouTube候補。",
-    n: 21
+    n: 20
   },
   {
     composer: "Giovanni Maria Trabaci",
@@ -347,7 +335,7 @@ const tracks = [
     performer: "YouTube candidate",
     startTime: "",
     desc: "Audit candidate copied from main #317. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 1603。ファンタジア/カプリッチョ/ヴォランタリー系の模倣的作品。 YouTube候補。",
-    n: 22
+    n: 21
   },
   {
     composer: "Ferruccio Busoni",
@@ -363,7 +351,7 @@ const tracks = [
     performer: "YouTube candidate",
     startTime: "",
     desc: "Audit candidate copied from main #339. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 1910。フーガまたはフーガを含む作品。 YouTube候補。",
-    n: 23
+    n: 22
   },
   {
     composer: "Johann Sebastian Bach",
@@ -380,7 +368,7 @@ const tracks = [
     startTime: "",
     parentWork: "Clavier-Ubung III",
     desc: "Audit candidate copied from main #341. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 1739。ファンタジア/カプリッチョ/ヴォランタリー系の模倣的作品。 YouTube候補。",
-    n: 24
+    n: 23
   },
   {
     composer: "Johann Sebastian Bach",
@@ -397,7 +385,7 @@ const tracks = [
     startTime: "",
     parentWork: "Clavier-Ubung III",
     desc: "Audit candidate copied from main #342. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 1739。ファンタジア/カプリッチョ/ヴォランタリー系の模倣的作品。 YouTube候補。",
-    n: 25
+    n: 24
   },
   {
     composer: "Johann Sebastian Bach",
@@ -414,7 +402,7 @@ const tracks = [
     startTime: "",
     parentWork: "Clavier-Ubung III",
     desc: "Audit candidate copied from main #343. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 1739。ファンタジア/カプリッチョ/ヴォランタリー系の模倣的作品。 YouTube候補。",
-    n: 26
+    n: 25
   },
   {
     composer: "Johann Sebastian Bach",
@@ -431,7 +419,7 @@ const tracks = [
     startTime: "",
     parentWork: "Clavier-Ubung III",
     desc: "Audit candidate copied from main #344. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 1739。ファンタジア/カプリッチョ/ヴォランタリー系の模倣的作品。 YouTube候補。",
-    n: 27
+    n: 26
   },
   {
     composer: "Johann Sebastian Bach",
@@ -448,7 +436,7 @@ const tracks = [
     startTime: "",
     parentWork: "Clavier-Ubung III",
     desc: "Audit candidate copied from main #347. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 1739。フーガまたはフーガを含む作品。 YouTube候補。",
-    n: 28
+    n: 27
   },
   {
     composer: "Johann Sebastian Bach",
@@ -465,7 +453,7 @@ const tracks = [
     startTime: "",
     parentWork: "Clavier-Ubung III",
     desc: "Audit candidate copied from main #348. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 1739。フーガまたはフーガを含む作品。 YouTube候補。",
-    n: 29
+    n: 28
   },
   {
     composer: "Johann Sebastian Bach",
@@ -482,7 +470,7 @@ const tracks = [
     startTime: "",
     parentWork: "Clavier-Ubung III",
     desc: "Audit candidate copied from main #349. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 1739。フーガまたはフーガを含む作品。 YouTube候補。",
-    n: 30
+    n: 29
   },
   {
     composer: "Johann Pachelbel",
@@ -498,7 +486,7 @@ const tracks = [
     performer: "YouTube candidate",
     startTime: "",
     desc: "Audit candidate copied from main #363. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 17th c.。ファンタジア/カプリッチョ/ヴォランタリー系の模倣的作品。 YouTube候補。",
-    n: 31
+    n: 30
   },
   {
     composer: "Johann Speth",
@@ -514,7 +502,7 @@ const tracks = [
     performer: "YouTube candidate",
     startTime: "",
     desc: "Audit candidate copied from main #385. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 1693。フーガまたはフーガを含む作品。 YouTube候補。",
-    n: 32
+    n: 31
   },
   {
     composer: "Antonio de Cabezon",
@@ -530,7 +518,7 @@ const tracks = [
     performer: "Score audio candidate",
     startTime: "",
     desc: "Audit candidate copied from main #407. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 16th c.。ファンタジア/カプリッチョ/ヴォランタリー系の模倣的作品。 YouTube候補。",
-    n: 33
+    n: 32
   },
   {
     composer: "Manuel Rodrigues Coelho",
@@ -546,7 +534,7 @@ const tracks = [
     performer: "Gerard Lesne candidate",
     startTime: "",
     desc: "Audit candidate copied from main #408. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 1620。ファンタジア/カプリッチョ/ヴォランタリー系の模倣的作品。 YouTube候補。",
-    n: 34
+    n: 33
   },
   {
     composer: "Manuel Rodrigues Coelho",
@@ -562,7 +550,7 @@ const tracks = [
     performer: "Gerard van Reenen candidate",
     startTime: "",
     desc: "Audit candidate copied from main #409. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 1620。ファンタジア/カプリッチョ/ヴォランタリー系の模倣的作品。 YouTube候補。",
-    n: 35
+    n: 34
   },
   {
     composer: "Manuel Rodrigues Coelho",
@@ -578,7 +566,7 @@ const tracks = [
     performer: "Radoslaw Marzec candidate",
     startTime: "",
     desc: "Audit candidate copied from main #410. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 1620。ファンタジア/カプリッチョ/ヴォランタリー系の模倣的作品。 YouTube候補。",
-    n: 36
+    n: 35
   },
   {
     composer: "Francisco Correa de Arauxo",
@@ -594,7 +582,7 @@ const tracks = [
     performer: "YouTube candidate",
     startTime: "",
     desc: "Audit candidate copied from main #411. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 1626。ファンタジア/カプリッチョ/ヴォランタリー系の模倣的作品。 YouTube候補。",
-    n: 37
+    n: 36
   },
   {
     composer: "Sebastian Aguilera de Heredia",
@@ -610,7 +598,7 @@ const tracks = [
     performer: "YouTube candidate",
     startTime: "",
     desc: "Audit candidate copied from main #412. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 17th c.。ファンタジア/カプリッチョ/ヴォランタリー系の模倣的作品。 YouTube候補。",
-    n: 38
+    n: 37
   },
   {
     composer: "Pablo Bruna",
@@ -626,7 +614,7 @@ const tracks = [
     performer: "YouTube candidate",
     startTime: "",
     desc: "Audit candidate copied from main #413. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 17th c.。ファンタジア/カプリッチョ/ヴォランタリー系の模倣的作品。 YouTube候補。",
-    n: 39
+    n: 38
   },
   {
     composer: "Orlando Gibbons",
@@ -642,7 +630,7 @@ const tracks = [
     performer: "YouTube candidate",
     startTime: "",
     desc: "Audit candidate copied from main #429. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 17th c.。ファンタジア/カプリッチョ/ヴォランタリー系の模倣的作品。 YouTube候補。",
-    n: 40
+    n: 39
   },
   {
     composer: "Henry Purcell",
@@ -658,7 +646,7 @@ const tracks = [
     performer: "YouTube candidate",
     startTime: "",
     desc: "Audit candidate copied from main #432. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 17th c.。ファンタジア/カプリッチョ/ヴォランタリー系の模倣的作品。 YouTube候補。",
-    n: 41
+    n: 40
   },
   {
     composer: "William Croft",
@@ -674,7 +662,7 @@ const tracks = [
     performer: "YouTube candidate",
     startTime: "",
     desc: "Audit candidate copied from main #433. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 18th c.。ファンタジア/カプリッチョ/ヴォランタリー系の模倣的作品。 YouTube候補。",
-    n: 42
+    n: 41
   },
   {
     composer: "Ferruccio Busoni",
@@ -690,7 +678,7 @@ const tracks = [
     performer: "YouTube candidate",
     startTime: "",
     desc: "Audit candidate copied from main #480. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 対位法的書法が明確な作品候補。",
-    n: 43
+    n: 42
   },
   {
     composer: "Johann Jakob Froberger",
@@ -706,7 +694,7 @@ const tracks = [
     performer: "YouTube candidate",
     startTime: "",
     desc: "Audit candidate copied from main #503. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 17th c.。模倣的書法が明確な作品。 YouTube候補。",
-    n: 44
+    n: 43
   },
   {
     composer: "William Byrd",
@@ -722,7 +710,7 @@ const tracks = [
     performer: "Capriccio Stravagante candidate",
     startTime: "",
     desc: "Audit candidate copied from main #516. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: ファンタジア/ファンシー系の模倣的作品候補。",
-    n: 45
+    n: 44
   },
   {
     composer: "William Byrd",
@@ -738,7 +726,7 @@ const tracks = [
     performer: "YouTube candidate",
     startTime: "",
     desc: "Audit candidate copied from main #517. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: ファンタジア/ファンシー系の模倣的作品候補。",
-    n: 46
+    n: 45
   },
   {
     composer: "Orlando Gibbons",
@@ -754,7 +742,7 @@ const tracks = [
     performer: "YouTube candidate",
     startTime: "",
     desc: "Audit candidate copied from main #518. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: ファンタジア/ファンシー系の模倣的作品候補。",
-    n: 47
+    n: 46
   },
   {
     composer: "John Bull",
@@ -770,7 +758,7 @@ const tracks = [
     performer: "YouTube candidate",
     startTime: "",
     desc: "Audit candidate copied from main #519. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: ファンタジア/ファンシー系の模倣的作品候補。",
-    n: 48
+    n: 47
   },
   {
     composer: "John Bull",
@@ -786,7 +774,7 @@ const tracks = [
     performer: "YouTube candidate",
     startTime: "",
     desc: "Audit candidate copied from main #520. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: ファンタジア/ファンシー系の模倣的作品候補。",
-    n: 49
+    n: 48
   },
   {
     composer: "Thomas Tomkins",
@@ -802,7 +790,7 @@ const tracks = [
     performer: "YouTube candidate",
     startTime: "",
     desc: "Audit candidate copied from main #521. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: ファンタジア/ファンシー系の模倣的作品候補。",
-    n: 50
+    n: 49
   },
   {
     composer: "William Lawes",
@@ -818,7 +806,7 @@ const tracks = [
     performer: "Phantasm candidate",
     startTime: "",
     desc: "Audit candidate copied from main #522. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: ファンタジア/ファンシー系の模倣的作品候補。",
-    n: 51
+    n: 50
   },
   {
     composer: "Henry Purcell",
@@ -834,7 +822,7 @@ const tracks = [
     performer: "YouTube candidate",
     startTime: "",
     desc: "Audit candidate copied from main #523. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: ファンタジア/ファンシー系の模倣的作品候補。",
-    n: 52
+    n: 51
   },
   {
     composer: "Matthew Locke",
@@ -850,7 +838,7 @@ const tracks = [
     performer: "YouTube candidate",
     startTime: "",
     desc: "Audit candidate copied from main #524. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: ファンタジア/ファンシー系の模倣的作品候補。",
-    n: 53
+    n: 52
   },
   {
     composer: "Francisco Correa de Arauxo",
@@ -866,7 +854,7 @@ const tracks = [
     performer: "YouTube candidate",
     startTime: "",
     desc: "Audit candidate copied from main #526. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: イベリア鍵盤のtiento/tento系模倣対位法作品候補。",
-    n: 54
+    n: 53
   },
   {
     composer: "Juan Bautista Cabanilles",
@@ -882,7 +870,7 @@ const tracks = [
     performer: "YouTube candidate",
     startTime: "",
     desc: "Audit candidate copied from main #527. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: イベリア鍵盤のtiento/tento系模倣対位法作品候補。",
-    n: 55
+    n: 54
   },
   {
     composer: "Pablo Bruna",
@@ -898,71 +886,7 @@ const tracks = [
     performer: "YouTube candidate",
     startTime: "",
     desc: "Audit candidate copied from main #528. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: イベリア鍵盤のtiento/tento系模倣対位法作品候補。",
-    n: 56
-  },
-  {
-    composer: "Manuel Rodrigues Coelho",
-    dates: "c.1555-c.1635",
-    title: "Segundo tento do segundo tom",
-    year: "1620",
-    area: "es",
-    areaLabel: "スペイン/ポルトガル",
-    type: "other-imitative",
-    typeLabel: "模倣対位法",
-    instr: "オルガン/鍵盤楽器",
-    vid: "3XZI-D_S0bk",
-    performer: "Justin Rubin candidate",
-    startTime: "",
-    desc: "Audit candidate copied from main #529. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: イベリア鍵盤のtiento/tento系模倣対位法作品候補。",
-    n: 57
-  },
-  {
-    composer: "Johann Sebastian Bach",
-    dates: "1685-1750",
-    title: "Christ unser Herr zum Jordan kam, BWV 685",
-    year: "1739",
-    area: "de",
-    areaLabel: "ドイツ",
-    type: "fughetta",
-    typeLabel: "フゲッタ",
-    instr: "オルガン",
-    vid: "vYDG9c0pn48",
-    performer: "YouTube candidate",
-    startTime: "",
-    desc: "Audit candidate copied from main #567. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 小規模なフーガ/フゲッタ候補。",
-    n: 58
-  },
-  {
-    composer: "Johann Sebastian Bach",
-    dates: "1685-1750",
-    title: "Wo soll ich fliehen hin, BWV 694",
-    year: "18th c.",
-    area: "de",
-    areaLabel: "ドイツ",
-    type: "fughetta",
-    typeLabel: "フゲッタ",
-    instr: "オルガン",
-    vid: "KEMbatiM1Ew",
-    performer: "YouTube candidate",
-    startTime: "",
-    desc: "Audit candidate copied from main #569. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 小規模なフーガ/フゲッタ候補。",
-    n: 59
-  },
-  {
-    composer: "Johann Sebastian Bach",
-    dates: "1685-1750",
-    title: "Fantasia super: Christ lag in Todesbanden, BWV 695",
-    year: "18th c.",
-    area: "de",
-    areaLabel: "ドイツ",
-    type: "other-imitative",
-    typeLabel: "模倣対位法",
-    instr: "オルガン",
-    vid: "KGjZlc8VSxg",
-    performer: "Netherlands Bach Society candidate",
-    startTime: "",
-    desc: "Audit candidate copied from main #570. Title/parentWork does not explicitly name fugue/ricercar/canzona/canon/gigue, and the entry was broad-scope or candidate-tagged. Judge whether the piece is sufficiently imitative counterpoint for the main playlist. Original note: 模倣的書法が明確な作品候補。",
-    n: 60
+    n: 55
   }
 ];
 function url(t){let u='https://www.youtube.com/watch?v='+t.vid;if(t.startTime)u+='&t='+t.startTime;return u;}
